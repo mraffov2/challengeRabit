@@ -14,18 +14,14 @@ amqp.connect('amqp://localhost', function(error, connection) {
         });
         channel.prefetch(1);
         console.log(" [*] Waiting for Json in %s. To exit press CTRL+C", queue);
+        
         channel.consume(queue, async (msg) => {
-
+            
             var secs = msg.content.toString().split('.').length - 1;
 
             console.log(" [x] Received %s", msg.content.toString());
 
-            // Data is prepared to save DB
-            let  message = msg.content.toString();
-            let body = JSON.parse(message);
-            let newJson = new Json({'body': body})
-            await newJson.save();
-
+            
             setTimeout(function() {
                 console.log(" [x] Done");
                 channel.ack(msg);

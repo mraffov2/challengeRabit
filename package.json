@@ -4,15 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "worker": "node worker.js" ,
-    "start": "node app.js"
+    "worker": "node worker.js",
+    "start": "node app.js",
+    "dev": " nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.5.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.1",
+    "node-time-ago": "^1.0.0",
+    "timeago.js": "^4.0.0-beta.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
   }
 }
