@@ -21,9 +21,9 @@ amqp.connect('amqp://localhost', function(error, connection) {
             console.log(" [x] Received %s", msg.content.toString());
 
             // Data is prepared to save DB
-            message = msg.content.toString()
-            body = JSON.parse(message)
-            newJson = new Json({'body': body})
+            let  message = msg.content.toString();
+            let body = JSON.parse(message);
+            let newJson = new Json({'body': body})
             await newJson.save();
 
             setTimeout(function() {
